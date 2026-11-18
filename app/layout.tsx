@@ -20,7 +20,7 @@ export default function RootLayout({
             <Link href="/blogs/new" className="hover:text-lime-500 transition-colors">Create</Link>
           </div>
         </nav>
-        <main className="p-4 sm:p-6 lg:p-8">
+        <main className="flex flex-col flex-1 p-4 sm:p-6 lg:p-8">
           {children}
         </main>
       </body>

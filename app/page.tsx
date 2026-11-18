@@ -3,9 +3,9 @@ const Home = () => {
   return (
     <div className="text-center">
       <div>
-        <h2 className="text-xl text-indigo-500">Chapter 2</h2>
+        <h2 className="text-xl text-indigo-500">Chapter 3</h2>
         <div className="text-3xl">
-          From single page apps to server side rendering
+          Databases, Migrations, and Relations
         </div>
         <div className="italic">
           An exercise for{" "}

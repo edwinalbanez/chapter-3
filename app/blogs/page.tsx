@@ -13,9 +13,9 @@ const Blogs = async ({ searchParams }: { searchParams: Promise<{ filter: string 
     )
 
     return (
-        <div className="flex flex-col max-w-5xl mx-auto">
+        <div className="flex flex-col">
             <h1 className="text-3xl text-cyan-950 mb-9 font-bold text-center">Blogs</h1>
-            <Search className="mb-4" value={filter} />
+            <Search className="w-2/5 mx-auto mb-4" value={filter} />
             {blogsToShow.map(blog => (
                 <BlogCard key={blog.id} blog={blog} />
             ))}
@@ -28,7 +28,7 @@ export default Blogs;
 function Search({ value, className, ...props }: ComponentProps<"div"> & {value: string}) {
     return (
         <form action={searchBlog}>
-            <div {...props} className={`flex w-2/5 gap-2 items-center px-3 ${className}`}>
+            <div {...props} className={`flex gap-2 items-center px-3 ${className}`}>
                 <input
                     type="text"
                     name="filter"
