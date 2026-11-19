@@ -1,5 +1,4 @@
 const Home = () => {
-  console.log('hello next.js')
   return (
     <div className="text-center">
       <div>

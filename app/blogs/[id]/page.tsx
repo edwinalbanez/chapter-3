@@ -5,9 +5,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ComponentProps } from "react";
 
-const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+const BlogPage = async ({ params }: { params: Promise<{ id: number }> }) => {
     const { id } = await params;
-    const blog = getBlogById(id);
+    const blog = await getBlogById(id);
     if (!blog) {
         notFound()
     }
@@ -31,7 +31,7 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
                     <div className="flex gap-2">
                         <p className="text-slate-700"> {blog.likes} likes </p>
                         <form action={incrementBlogLikes}>
-                            <input type="text" name="id" value={blog.id} className="hidden" />
+                            <input type="text" name="id" value={blog.id} readOnly className="hidden" />
                             <button type="submit">
                                 <LikeIcon className="hover:text-cyan-700 size-6 cursor-pointer"/>
                             </button>

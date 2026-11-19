@@ -3,27 +3,24 @@ import { getBlogs } from "../services/blogs";
 import { ComponentProps } from "react";
 import { searchBlog } from "../actions/blogs";
 
-const Blogs = async ({ searchParams }: { searchParams: Promise<{ filter: string }> }) => {
+const Page = async ({ searchParams }: { searchParams: Promise<{ filter: string }> }) => {
     const { filter } = await searchParams;
-    const blogs = getBlogs();
-
-    const blogsToShow = blogs.filter(blog => blog.title
-        .toLocaleLowerCase()
-        .includes(filter ? filter.toLocaleLowerCase() : "")
-    )
+    
+    const blogs = await getBlogs(filter);
 
     return (
         <div className="flex flex-col">
             <h1 className="text-3xl text-cyan-950 mb-9 font-bold text-center">Blogs</h1>
             <Search className="w-2/5 mx-auto mb-4" value={filter} />
-            {blogsToShow.map(blog => (
+            {blogs.map(blog => (
                 <BlogCard key={blog.id} blog={blog} />
             ))}
         </div>
     )
 }
 
-export default Blogs;
+export default Page;
+
 
 function Search({ value, className, ...props }: ComponentProps<"div"> & {value: string}) {
     return (
@@ -46,7 +43,7 @@ function Search({ value, className, ...props }: ComponentProps<"div"> & {value: 
 }
 
 type Blog = {
-    id: string;
+    id: number;
     author: string;
     title: string;
     url: string;
