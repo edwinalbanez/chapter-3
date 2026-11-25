@@ -12,7 +12,7 @@ export const getBlogs = (filter: string = "") => {
 }
 
 export const addBlog = async(title: string, author: string, url: string) => {
-  await db.insert(blogs).values({ title, author, url})
+  await db.insert(blogs).values({ title, author, url, userId: 1})
 }
 
 export const getBlogById = (id: number) => {

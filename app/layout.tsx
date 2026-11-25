@@ -17,6 +17,8 @@ export default function RootLayout({
             <Separator/>
             <Link href="/blogs" className="hover:text-lime-500 transition-colors">Blogs</Link>
             <Separator/>
+            <Link href="/users" className="hover:text-lime-500 transition-colors">Users</Link>
+            <Separator/>
             <Link href="/blogs/new" className="hover:text-lime-500 transition-colors">Create</Link>
           </div>
         </nav>
