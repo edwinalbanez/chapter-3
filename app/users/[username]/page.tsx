@@ -25,11 +25,15 @@ export default async function Page({ params }: { params: Promise<{ username: str
             </Link>
             <UserInfo user={user} />
 
-            {user.blogs.length !== 0 && (
+            {user.blogs.length !== 0 ? (
                 <div className="bg-white rounded-2xl px-3 pt-1 mt-5 shadow-sm">
                     {user.blogs.map((blog) => (
                         <BlogCard key={blog.id} blog={blog} />
                     ))}
+                </div>
+            ) : (
+                <div className="text-xl text-slate-400 italic mt-10">
+                    User with no blogs
                 </div>
             )}
         </div>
@@ -52,7 +56,7 @@ function UserInfo({ user }: { user: User }) {
                 <div className="flex gap-2 text-xl">
                     <p className="text-lime-600"> {user.username} </p>
                     <span className="text-slate-300">{" | "}</span>
-                    <p className="text-slate-600">  {user.blogs.length} blogs saved</p>
+                    <p className="text-slate-600">  {user.blogs.length} saved blogs </p>
                 </div>
             </div>
         </div>
