@@ -14,8 +14,8 @@ const BlogPage = async ({ params }: { params: Promise<{ id: number }> }) => {
 
     return (
         <div className="flex">
-            <div className="flex flex-col mx-auto p-5 border border-gray-200 rounded-2xl shadow-md">
-                <Link href={"/blogs"} className="w-fit mb-2.5 cursor-pointer hover:underline text-slate-500/90 hover:text-slate-600">
+            <div className="flex flex-col mx-auto p-5 bg-white rounded-2xl shadow-md">
+                <Link href={"/blogs"} className="w-fit mb-2.5 cursor-pointer hover:underline text-slate-500 hover:text-slate-600">
                     {"< back"}
                 </Link>
                 <h1 className="text-2xl text-cyan-700"> {blog?.title} </h1>

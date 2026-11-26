@@ -15,9 +15,9 @@ export default async function Page() {
 
 function UserCard({ user }: { user: { name: string, username: string } }) {
     return(
-        <div className="flex p-5 gap-2 border border-gray-200/80 rounded-2xl shadow-sm">
-            <div className="flex select-none items-center justify-center bg-cyan-500 text-cyan-800 font-bold text-2xl rounded-full size-12">
-                {user.name[0].toLocaleUpperCase()}
+        <div className="flex items-center bg-white p-5 gap-2 rounded-2xl shadow-sm">
+            <div className="flex uppercase select-none items-center justify-center bg-cyan-500 text-cyan-900 font-bold text-3xl rounded-full size-16">
+                {user.name[0]}
             </div>
             <div className="">
                 <Link href={`/users/${user.username}`} className="font-bold text-cyan-900 cursor-pointer hover:underline"> {user.name} </Link>

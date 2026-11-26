@@ -3,9 +3,9 @@ import { ComponentProps } from "react";
 
 export default function Create() {
     return (
-        <div className="max-w-[50%] mx-auto">
-            <form action={createBlog} className="flex flex-col gap-3">
-                <h1 className="text-xl text-cyan-700 text-center">Create new blog</h1>
+        <div className="flex w-[40%] mx-auto">
+            <form action={createBlog} className="flex flex-col gap-3 w-full">
+                <h1 className="text-xl text-cyan-700 text-center font-bold">Create new blog</h1>
                 <Field label="Title" name="title" />
                 <Field label="Author" name="author" />
                 <Field label="Url" name="url" />
@@ -24,7 +24,7 @@ export default function Create() {
     );
 }
 
-function Field({ label, ...props }: ComponentProps<"input"> & { label: string }) {
+function Field({ label, className, ...props }: ComponentProps<"input"> & { label: string }) {
     return (
         <label className="flex flex-col">
             {label}
@@ -32,7 +32,7 @@ function Field({ label, ...props }: ComponentProps<"input"> & { label: string })
                 type="text"
                 autoComplete="off"
                 required
-                className="border border-gray-300 rounded-md px-3 py-2 focus:outline-lime-600"
+                className={`bg-white shadow-sm border border-gray-100 rounded-md px-3 py-2 focus:outline-lime-600 ${className}`}
                 {...props}
             />
         </label>

@@ -19,7 +19,7 @@ export default function RootLayout({
             <Separator/>
             <Link href="/users" className="hover:text-lime-500 transition-colors">Users</Link>
             <Separator/>
-            <Link href="/blogs/new" className="hover:text-lime-500 transition-colors">Create</Link>
+            <Link href="/blogs/new" className="hover:text-lime-500 transition-colors">Create blog</Link>
           </div>
         </nav>
         <main className="flex flex-col flex-1 p-4 sm:p-6 lg:p-8">

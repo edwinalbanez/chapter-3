@@ -2,17 +2,29 @@ import Link from "next/link";
 import { getBlogs } from "../services/blogs";
 import { searchBlog } from "../actions/blogs";
 
-export default async function Page({ searchParams }: { searchParams: Promise<{ filter: string }> }){
+export type Blog = {
+    id: number;
+    author: string;
+    title: string;
+    url: string;
+    likes: number;
+}
+
+export default async function Page({ searchParams }: { searchParams: Promise<{ filter: string }> }) {
     const { filter } = await searchParams;
     const blogs = await getBlogs(filter);
 
     return (
         <div className="flex flex-col">
-            <h1 className="text-3xl text-cyan-950 mb-9 font-bold text-center">Blogs</h1>
-            <Search className="w-2/5 mx-auto mb-4" defaultValue={filter} />
-            {blogs.map(blog => (
-                <BlogCard key={blog.id} blog={blog} />
-            ))}
+            <h1 className="text-3xl text-cyan-950 mb-7 font-bold text-center">Blogs</h1>
+            <Search className="w-2/5 mx-auto mb-7" defaultValue={filter} />
+
+            <div className="bg-white shadow-sm rounded-2xl px-3">
+                {blogs.map(blog => (
+                    <BlogCard key={blog.id} blog={blog} />
+                ))}
+            </div>
+
         </div>
     )
 }
@@ -27,7 +39,7 @@ function Search({ defaultValue, className }: { defaultValue: string, className: 
                     defaultValue={defaultValue}
                     autoComplete="off"
                     placeholder=" Blog title..."
-                    className="border border-gray-400 w-full p-1.5 rounded-md focus:outline-cyan-800"
+                    className="bg-white shadow-sm border border-gray-100 w-full p-1.5 rounded-md focus:outline-cyan-800"
                 />
                 <button type="submit" className="cursor-pointer bg-cyan-900 text-white text-lg border border-slate-300 py-1 px-3 rounded-md ">
                     Search
@@ -37,15 +49,7 @@ function Search({ defaultValue, className }: { defaultValue: string, className: 
     )
 }
 
-type Blog = {
-    id: number;
-    author: string;
-    title: string;
-    url: string;
-    likes: number;
-}
-
-function BlogCard({ blog }: { blog: Blog }) {
+export function BlogCard({ blog }: { blog: Blog }) {
     const { id, author, title, likes } = blog;
 
     return (

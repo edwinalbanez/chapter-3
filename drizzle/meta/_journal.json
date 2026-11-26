@@ -8,6 +8,13 @@
       "when": 1795497790112,
       "tag": "0000_fancy_reptil",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795653199892,
+      "tag": "0001_seed-users",
+      "breakpoints": true
     }
   ]
 }
